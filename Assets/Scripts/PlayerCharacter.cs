@@ -3,27 +3,23 @@ using UnityEngine.InputSystem;
 
 public class PlayerCharacter : MonoBehaviour
 {
-    [field: SerializeField]
-    public GameObject MainCamera { get; set; }
-
-    private GameObject Highlight;
-
-    private bool IsSelected;
+    private GameObject _highlight;
+    private bool _isSelected;
 
     void Start()
     {
-        Highlight = GameObject.Find("Highlight");
-        Highlight.SetActive(false);
+        _highlight = GameObject.Find("Highlight");
+        _highlight.SetActive(false);
     }
 
     void Update()
     {
-        Highlight.SetActive(IsSelected);
+        _highlight.SetActive(_isSelected);
     }
 
     public void OnPrimaryAction(InputAction.CallbackContext context)
     {
-        IsSelected = false;
+        _isSelected = false;
 
         // TODO: Try to use mouse position from context instead
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
@@ -33,11 +29,11 @@ public class PlayerCharacter : MonoBehaviour
         if (hit.collider == null) return;
         if (hit.collider.gameObject.tag != "Player") return;
 
-        IsSelected = true;
+        _isSelected = true;
     }
 
     public void OnCancelAction(InputAction.CallbackContext context)
     {
-        IsSelected = false;
+        _isSelected = false;
     }
 }
