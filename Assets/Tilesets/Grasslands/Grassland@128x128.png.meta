@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 2
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,7 +43,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -69,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -5582,17 +5582,17 @@ TextureImporter:
       Grassland@128x128_5: 1598903595
       Grassland@128x128_69: 1235228090
       Grassland@128x128_19: -1761123399
+      Grassland@128x128_195: 908277956
       Grassland@128x128_64: 630210712
       Grassland@128x128_173: -1660564647
       Grassland@128x128_142: -1943679369
-      Grassland@128x128_138: -989612448
       Grassland@128x128_214: 1383227255
       Grassland@128x128_51: 714585609
       Grassland@128x128_152: -1888641380
       Grassland@128x128_12: -918152706
       Grassland@128x128_163: 1006910874
-      Grassland@128x128_195: 908277956
       Grassland@128x128_205: -1066481423
+      Grassland@128x128_138: -989612448
       Grassland@128x128_212: -1453428775
       Grassland@128x128_131: -586022825
       Grassland@128x128_237: -951906955
@@ -5627,9 +5627,9 @@ TextureImporter:
       Grassland@128x128_25: -1697521874
       Grassland@128x128_185: 2099330844
       Grassland@128x128_1: -1096799040
-      Grassland@128x128_160: 971825156
       Grassland@128x128_194: 845341572
       Grassland@128x128_244: 2121154695
+      Grassland@128x128_160: 971825156
       Grassland@128x128_180: 1765194198
       Grassland@128x128_215: 502831211
       Grassland@128x128_102: -1060904181

@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 2
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,7 +43,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -69,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -5590,17 +5590,17 @@ TextureImporter:
       GrasslandColor2@128x128_147: -1494394317
       GrasslandColor2@128x128_236: -692327839
       GrasslandColor2@128x128_5: 313901942
-      GrasslandColor2@128x128_226: 225795215
       GrasslandColor2@128x128_231: 1215042702
+      GrasslandColor2@128x128_226: 225795215
       GrasslandColor2@128x128_130: -1632595423
       GrasslandColor2@128x128_23: 906629427
-      GrasslandColor2@128x128_24: 98588016
       GrasslandColor2@128x128_105: -1790358551
+      GrasslandColor2@128x128_24: 98588016
       GrasslandColor2@128x128_229: -816018304
       GrasslandColor2@128x128_17: 234619183
       GrasslandColor2@128x128_18: -479311818
-      GrasslandColor2@128x128_49: -1264140453
       GrasslandColor2@128x128_249: 1940113517
+      GrasslandColor2@128x128_49: -1264140453
       GrasslandColor2@128x128_253: 1025020989
       GrasslandColor2@128x128_210: 1189211568
       GrasslandColor2@128x128_117: 2067583498
@@ -5620,10 +5620,10 @@ TextureImporter:
       GrasslandColor2@128x128_126: 1587822985
       GrasslandColor2@128x128_88: 374018018
       GrasslandColor2@128x128_182: 1472239867
-      GrasslandColor2@128x128_122: -1617489339
+      GrasslandColor2@128x128_209: -1904037584
       GrasslandColor2@128x128_167: 132640461
       GrasslandColor2@128x128_43: 1171685643
-      GrasslandColor2@128x128_209: -1904037584
+      GrasslandColor2@128x128_122: -1617489339
       GrasslandColor2@128x128_70: -877893770
       GrasslandColor2@128x128_161: 228778461
       GrasslandColor2@128x128_81: -1482849332

@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 2
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,7 +43,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -69,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -5420,7 +5420,7 @@ TextureImporter:
     nameFileIdTable:
       Town@128x128_171: -226632556
       Town@128x128_224: -545053552
-      Town@128x128_183: 1582967723
+      Town@128x128_123: 1809786686
       Town@128x128_225: 786570170
       Town@128x128_108: 1142577177
       Town@128x128_45: 1073528037
@@ -5668,8 +5668,8 @@ TextureImporter:
       Town@128x128_249: 1406436573
       Town@128x128_185: 7137764
       Town@128x128_221: 1686094227
-      Town@128x128_123: 1809786686
       Town@128x128_175: 1588882383
+      Town@128x128_183: 1582967723
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

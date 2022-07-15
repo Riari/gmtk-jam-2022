@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 2
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,7 +43,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -69,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -5468,52 +5468,52 @@ TextureImporter:
       TownColor2@128x128_101: -285072080
       TownColor2@128x128_118: 1996866343
       TownColor2@128x128_193: 1479945912
+      TownColor2@128x128_152: 1003112650
       TownColor2@128x128_13: -469484079
       TownColor2@128x128_21: 1628450962
       TownColor2@128x128_16: -834670454
       TownColor2@128x128_72: -2134926337
       TownColor2@128x128_218: -1624879312
       TownColor2@128x128_17: 1555175956
-      TownColor2@128x128_188: -39245116
       TownColor2@128x128_227: 105244023
       TownColor2@128x128_45: -632387388
       TownColor2@128x128_100: -1178205274
+      TownColor2@128x128_188: -39245116
       TownColor2@128x128_238: -1167251771
       TownColor2@128x128_201: 890111394
       TownColor2@128x128_90: 377710303
+      TownColor2@128x128_137: 999421482
       TownColor2@128x128_22: -2060404622
-      TownColor2@128x128_40: -2005697817
       TownColor2@128x128_222: 1080943412
       TownColor2@128x128_108: -1314816775
-      TownColor2@128x128_125: 302946827
+      TownColor2@128x128_172: 1690914286
       TownColor2@128x128_107: -815624213
       TownColor2@128x128_121: 1701605339
-      TownColor2@128x128_155: -776328477
+      TownColor2@128x128_247: 29215260
       TownColor2@128x128_133: -1873288574
       TownColor2@128x128_132: 837949790
-      TownColor2@128x128_137: 999421482
-      TownColor2@128x128_152: 1003112650
-      TownColor2@128x128_8: -143043930
       TownColor2@128x128_154: -964397153
+      TownColor2@128x128_40: -2005697817
+      TownColor2@128x128_8: -143043930
       TownColor2@128x128_140: -1201745831
       TownColor2@128x128_61: 1124672042
       TownColor2@128x128_186: -1287867982
       TownColor2@128x128_246: -1340163486
-      TownColor2@128x128_172: 1690914286
+      TownColor2@128x128_125: 302946827
       TownColor2@128x128_129: 284430580
       TownColor2@128x128_91: -434524444
+      TownColor2@128x128_155: -776328477
       TownColor2@128x128_5: -94794308
       TownColor2@128x128_56: 427043761
       TownColor2@128x128_89: 1059990847
       TownColor2@128x128_200: -761664924
-      TownColor2@128x128_161: -1461992174
       TownColor2@128x128_177: 1309100956
       TownColor2@128x128_135: -363343854
       TownColor2@128x128_106: 677152532
       TownColor2@128x128_37: -929258090
-      TownColor2@128x128_237: 2092119416
+      TownColor2@128x128_161: -1461992174
       TownColor2@128x128_58: 1877024423
-      TownColor2@128x128_247: 29215260
+      TownColor2@128x128_237: 2092119416
       TownColor2@128x128_117: 1950803966
       TownColor2@128x128_174: -2060056994
       TownColor2@128x128_51: -547138571
@@ -5579,10 +5579,10 @@ TextureImporter:
       TownColor2@128x128_239: 505413760
       TownColor2@128x128_63: 620024647
       TownColor2@128x128_55: 1977173249
-      TownColor2@128x128_65: 1367309130
       TownColor2@128x128_131: -679139092
-      TownColor2@128x128_171: 1354658493
       TownColor2@128x128_141: -1552749904
+      TownColor2@128x128_65: 1367309130
+      TownColor2@128x128_171: 1354658493
       TownColor2@128x128_241: -325016421
       TownColor2@128x128_145: 597703312
       TownColor2@128x128_221: -2091843906
