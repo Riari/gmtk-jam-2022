@@ -97,7 +97,7 @@ public class GridController : MonoBehaviour
 
     Vector3Int GetPlayerCell()
     {
-        return _walkableTilemap.WorldToCell(_player.GetAnchorPosition());
+        return _walkableTilemap.WorldToCell(Player.transform.position);
     }
 
     public void OnCursorPositionAction(InputAction.CallbackContext context)
@@ -114,6 +114,9 @@ public class GridController : MonoBehaviour
         // Only set the path if it's valid and within the max moves per turn
         if (path == null) return;
         _path = (path.Count() <= MaxMovesPerTurn) ? path : null;
+
+        if (_path == null) return;
+        _player.Move(_path);
     }
 
     List<Cell> CalculatePathTo(Vector3Int destination)
@@ -179,11 +182,8 @@ public class GridController : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        if (Application.isPlaying)
-        {
-            Gizmos.color = Color.cyan;
-            Gizmos.DrawSphere(_player.GetAnchorPosition(), 0.25f);
-        }
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawSphere(Player.transform.position, 0.15f);
 
         if (_path == null) return;
 
@@ -215,14 +215,5 @@ public class GridController : MonoBehaviour
                 .Where(cell => _walkableTilemap.cellBounds.Contains(cell.Position))
                 .Where(cell => _walkableCells.Contains(cell.Position))
                 .ToList();
-    }
-
-    class Cell
-    {
-        public Vector3Int Position { get; set; }
-        public int Cost { get; set; }
-        public int Distance { get; set; }
-        public int CostDistance => Cost + Distance;
-        public Cell Parent { get; set; }
     }
 }
