@@ -46,7 +46,7 @@ public class GridController : MonoBehaviour
     readonly private List<Tilemap> _nonWalkableTilemaps = new List<Tilemap>();
     private Vector2 _cursorPosition;
 
-    private Vector3Int _destination;
+    private Vector3Int _destinationCell;
     private bool _isValidDestination;
 
     private List<Cell> _path = null;
@@ -89,12 +89,21 @@ public class GridController : MonoBehaviour
             return;
         }
 
-        cellHighlight.Enable();
-        _destination = _walkableTilemap.WorldToCell(Camera.main.ScreenToWorldPoint(_cursorPosition));
-        cellHighlight.SetPosition(_grid.GetCellCenterWorld(_destination));
-        Vector3Int start = GetPlayerCell();
-        _isValidDestination = start.ManhattanDistance(_destination) < MaxMovesPerTurn;
+        _destinationCell = _walkableTilemap.WorldToCell(Camera.main.ScreenToWorldPoint(_cursorPosition));
+        Vector3Int startCell = GetPlayerCell();
+
+        if (startCell == _destinationCell)
+        {
+            cellHighlight.Disable();
+            return;
+        }
+
+        _isValidDestination = startCell.ManhattanDistance(_destinationCell) < MaxMovesPerTurn;
+
+        var destination = _grid.GetCellCenterWorld(_destinationCell);
+        cellHighlight.SetPosition(destination);
         cellHighlight.SetValid(_isValidDestination);
+        cellHighlight.Enable();
     }
 
     Vector3Int GetPlayerCell()
@@ -111,7 +120,7 @@ public class GridController : MonoBehaviour
     {
         if (!_isValidDestination || !_playerSelectable.IsSelected) return;
 
-        var path = CalculatePathTo(_destination);
+        var path = CalculatePathTo(_destinationCell);
 
         // Only set the path if it's valid and within the max moves per turn
         if (path == null) return;

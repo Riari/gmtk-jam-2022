@@ -1,12 +1,18 @@
+using System;
 using UnityEngine;
 
 public class Stats : MonoBehaviour
 {
-    public int Health;
-    public int MaxHealth;
+    [field: SerializeField]
+    public int Health = 100;
 
-    public RangeInt Attack;
-    public int AC;
+    [field: SerializeField]
+    public int MaxHealth = 100;
+    
+    [field: SerializeField]
+    public int AC = 12;
+
+    public Tuple<int, int> Attack = new(1, Dice.D6);
 
     // Start is called before the first frame update
     void Start()

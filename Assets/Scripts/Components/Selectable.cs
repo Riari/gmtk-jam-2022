@@ -5,19 +5,17 @@ public class Selectable : MonoBehaviour
 {
     public bool IsSelected { get; private set; }
 
-    private GameObject _highlight;
+    private Material _material;
 
     void Start()
     {
+        _material = GameObject.Find("Sprite").GetComponent<SpriteRenderer>().material;
         IsSelected = false;
-
-        _highlight = GameObject.Find("Highlight");
-        _highlight.SetActive(false);
     }
 
     void Update()
     {
-        _highlight.SetActive(IsSelected);
+        _material.SetInt("_OutlineEnabled", IsSelected ? 1 : 0);
     }
 
     public void OnPrimaryAction(InputAction.CallbackContext context)
