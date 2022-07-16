@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class Selectable : MonoBehaviour
 {
+    public bool IsSelectable { get; private set; } = true;
     public bool IsSelected { get; private set; }
 
     private Material _material;
@@ -18,8 +19,21 @@ public class Selectable : MonoBehaviour
         _material.SetInt("_OutlineEnabled", IsSelected ? 1 : 0);
     }
 
+    public void Freeze()
+    {
+        IsSelectable = false;
+        IsSelected = false;
+    }
+    
+    public void Unfreeze()
+    {
+        IsSelectable = true;
+    }
+
     public void OnPrimaryAction(InputAction.CallbackContext context)
     {
+        if (!IsSelectable) return;
+
         IsSelected = false;
 
         // TODO: Try to use mouse position from context instead
