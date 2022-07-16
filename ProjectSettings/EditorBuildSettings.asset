@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainTitleScene.unity
     guid: 0700a2ee6ecca34468c89e9dfe8627dd
   - enabled: 1
-    path: Assets/Scenes/TilemapTest.unity
+    path: Assets/Scenes/Dungeon1.unity
     guid: 4a523602debb4f24c80b4d27054d1290
   - enabled: 1
     path: Assets/Scenes/Rules.unity
