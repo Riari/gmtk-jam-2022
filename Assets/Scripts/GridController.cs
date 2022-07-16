@@ -7,6 +7,9 @@ using UnityEngine.Tilemaps;
 public class GridController : MonoBehaviour
 {
     [field: SerializeField]
+    public int MaxMovesPerTurn { get; set; }
+
+    [field: SerializeField]
     public GameObject Player { get; set; }
 
     [System.Serializable]
@@ -88,7 +91,7 @@ public class GridController : MonoBehaviour
         _destination = _walkableTilemap.WorldToCell(Camera.main.ScreenToWorldPoint(_cursorPosition));
         cellHighlight.SetPosition(_grid.GetCellCenterWorld(_destination));
         Vector3Int start = GetPlayerCell();
-        _isValidDestination = start.ManhattanDistance(_destination) < 5;
+        _isValidDestination = start.ManhattanDistance(_destination) < MaxMovesPerTurn;
         cellHighlight.SetValid(_isValidDestination);
     }
 
@@ -106,7 +109,11 @@ public class GridController : MonoBehaviour
     {
         if (!_isValidDestination || !_player.IsSelected) return;
 
-        _path = CalculatePathTo(_destination);
+        var path = CalculatePathTo(_destination);
+
+        // Only set the path if it's valid and within the max moves per turn
+        if (path == null) return;
+        _path = (path.Count() <= MaxMovesPerTurn) ? path : null;
     }
 
     List<Cell> CalculatePathTo(Vector3Int destination)
