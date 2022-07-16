@@ -69,6 +69,17 @@ public class PlayerCharacter : MonoBehaviour
         _path = new Queue<Cell>(path);
     }
 
+    public void StopMoving()
+    {
+        _path = null;
+        _moveTimer = 0f;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        StopMoving();
+    }
+
     public void OnPrimaryAction(InputAction.CallbackContext context)
     {
         IsSelected = false;
