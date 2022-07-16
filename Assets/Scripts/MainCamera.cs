@@ -21,10 +21,13 @@ public class MainCamera : MonoBehaviour
     private Camera _camera;
     private float _targetSize;
 
-    private Vector3 _pan = Vector3.zero;
-
     readonly private Vector3 _defaultFocalPoint = new Vector3(0, 0, -10);
     private Vector3 _focalPoint;
+
+    private bool _panLeft;
+    private bool _panRight;
+    private bool _panUp;
+    private bool _panDown;
 
     void Start()
     {
@@ -52,7 +55,13 @@ public class MainCamera : MonoBehaviour
             return;
         }
 
-        _camera.transform.position += _pan * Time.deltaTime;
+        Vector3 pan = Vector3.zero;
+        if (_panLeft) pan.x -= PanSpeed;
+        if (_panRight) pan.x += PanSpeed;
+        if (_panDown) pan.y -= PanSpeed;
+        if (_panUp) pan.y += PanSpeed;
+
+        _camera.transform.position += pan * Time.deltaTime;
     }
 
     public void FocusOn(GameObject obj)
@@ -63,26 +72,22 @@ public class MainCamera : MonoBehaviour
 
     public void OnLeft(InputAction.CallbackContext context)
     {
-        if (context.performed && !context.canceled) _pan.x = -PanSpeed;
-        else _pan.x = 0;
+        _panLeft = context.performed && !context.canceled;
     }
 
     public void OnRight(InputAction.CallbackContext context)
     {
-        if (context.performed && !context.canceled) _pan.x = PanSpeed;
-        else _pan.x = 0;
+        _panRight = context.performed && !context.canceled;
     }
 
     public void OnUp(InputAction.CallbackContext context)
     {
-        if (context.performed && !context.canceled) _pan.y = PanSpeed;
-        else _pan.y = 0;
+        _panUp = context.performed && !context.canceled;
     }
 
     public void OnDown(InputAction.CallbackContext context)
     {
-        if (context.performed && !context.canceled) _pan.y = -PanSpeed;
-        else _pan.y = 0;
+        _panDown = context.performed && !context.canceled;
     }
 
     public void OnZoom(InputAction.CallbackContext context)
