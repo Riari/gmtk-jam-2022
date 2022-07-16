@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: PixelFont 2
   m_EditorClassIdentifier: 
-  hashCode: 1510391146
+  hashCode: 1510391145
   material: {fileID: 1481968723593014141}
-  materialHashCode: 157007242
+  materialHashCode: -1196054231
   m_Version: 1.1.0
   m_SourceFontFileGUID: 6788cbe51ebdca3488528405a554abaf
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 6788cbe51ebdca3488528405a554abaf, type: 3}
