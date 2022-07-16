@@ -3,20 +3,28 @@ using UnityEngine.InputSystem;
 
 public class PlayerCharacter : MonoBehaviour
 {
-    private GameObject _highlight;
-
     public bool IsSelected { get; private set; }
+
+    private GameObject _highlight;
+    private GameObject _anchor; // Used to lock the player to a cell position
 
     void Start()
     {
         IsSelected = false;
         _highlight = GameObject.Find("Highlight");
         _highlight.SetActive(false);
+
+        _anchor = GameObject.Find("Anchor");
     }
 
     void Update()
     {
         _highlight.SetActive(IsSelected);
+    }
+
+    public Vector3 GetAnchorPosition()
+    {
+        return _anchor.transform.position;
     }
 
     public void OnPrimaryAction(InputAction.CallbackContext context)

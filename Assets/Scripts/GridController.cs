@@ -94,7 +94,7 @@ public class GridController : MonoBehaviour
 
     Vector3Int GetPlayerCell()
     {
-        return _walkableTilemap.WorldToCell(Player.transform.position);
+        return _walkableTilemap.WorldToCell(_player.GetAnchorPosition());
     }
 
     public void OnCursorPositionAction(InputAction.CallbackContext context)
@@ -133,13 +133,12 @@ public class GridController : MonoBehaviour
                 // Destination reached - return the path
                 var path = new List<Cell>();
                 path.Add(next);
-                while (next.Parent != null && next.Position != start.Position)
+                while (next.Parent != null && next.Parent.Position != start.Position)
                 {
                     path.Add(next.Parent);
                     next = next.Parent;
                 }
 
-                path.Add(next);
                 path.Reverse();
                 return path;
             }
@@ -173,8 +172,11 @@ public class GridController : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawSphere(Player.transform.position, 0.25f);
+        if (Application.isPlaying)
+        {
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawSphere(_player.GetAnchorPosition(), 0.25f);
+        }
 
         if (_path == null) return;
 
