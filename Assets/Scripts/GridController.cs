@@ -113,12 +113,14 @@ public class GridController : MonoBehaviour
 
     public void OnCursorPositionAction(InputAction.CallbackContext context)
     {
+        if (!context.performed || context.canceled) return;
+
         _cursorPosition = Mouse.current.position.ReadValue();
     }
 
     public void OnSecondaryAction(InputAction.CallbackContext context)
     {
-        if (!_isValidDestination || !_playerSelectable.IsSelected) return;
+        if (!_isValidDestination || !_playerSelectable.IsSelected || !context.performed || context.canceled) return;
 
         var path = CalculatePathTo(_destinationCell);
 
