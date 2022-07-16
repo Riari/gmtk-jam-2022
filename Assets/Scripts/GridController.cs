@@ -40,7 +40,8 @@ public class GridController : MonoBehaviour
     public List<GameObject> NonWalkableTilemaps { get; set; }
 
     private Grid _grid;
-    private PlayerCharacter _player;
+    private Selectable _playerSelectable;
+    private Moveable _playerMoveable;
     private Tilemap _walkableTilemap;
     readonly private List<Tilemap> _nonWalkableTilemaps = new List<Tilemap>();
     private Vector2 _cursorPosition;
@@ -55,7 +56,8 @@ public class GridController : MonoBehaviour
     void Start()
     {
         _grid = GetComponent<Grid>();
-        _player = Player.GetComponent<PlayerCharacter>();
+        _playerSelectable = Player.GetComponent<Selectable>();
+        _playerMoveable = Player.GetComponent<Moveable>();
         _walkableTilemap = WalkableTilemap.GetComponent<Tilemap>();
         NonWalkableTilemaps.ForEach(map => _nonWalkableTilemaps.Add(map.GetComponent<Tilemap>()));
 
@@ -81,7 +83,7 @@ public class GridController : MonoBehaviour
 
     void Update()
     {
-        if (!_player.IsSelected)
+        if (!_playerSelectable.IsSelected)
         {
             cellHighlight.Disable();
             return;
@@ -107,7 +109,7 @@ public class GridController : MonoBehaviour
 
     public void OnSecondaryAction(InputAction.CallbackContext context)
     {
-        if (!_isValidDestination || !_player.IsSelected) return;
+        if (!_isValidDestination || !_playerSelectable.IsSelected) return;
 
         var path = CalculatePathTo(_destination);
 
@@ -116,7 +118,7 @@ public class GridController : MonoBehaviour
         _path = (path.Count() <= MaxMovesPerTurn) ? path : null;
 
         if (_path == null) return;
-        _player.Move(_path);
+        _playerMoveable.Move(_path);
     }
 
     List<Cell> CalculatePathTo(Vector3Int destination)
