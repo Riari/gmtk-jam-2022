@@ -13,6 +13,8 @@ public class Moveable : MonoBehaviour
 
     private Grid _grid;
 
+    private SpriteRenderer _spriteRenderer;
+
     private Queue<Cell> _path;
 
     private Vector3 _prevPosition;
@@ -24,7 +26,9 @@ public class Moveable : MonoBehaviour
     private void Start()
     {
         _grid = Grid.GetComponent<Grid>();
-        _animator = GameObject.Find("Sprite").GetComponent<Animator>();
+        var sprite = GameObject.Find("Sprite");
+        _spriteRenderer = sprite.GetComponent<SpriteRenderer>();
+        _animator = sprite.GetComponent<Animator>();
     }
 
     private void Update()
@@ -42,6 +46,7 @@ public class Moveable : MonoBehaviour
                 _prevPosition = transform.position;
                 _nextPosition = _grid.GetCellCenterWorld(_path.Dequeue().Position);
                 _moveTimer = SecondsPerMove;
+                _spriteRenderer.flipX = _prevPosition.x > _nextPosition.x;
             }
             else
             {
