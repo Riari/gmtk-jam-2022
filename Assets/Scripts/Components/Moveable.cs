@@ -1,22 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class PlayerCharacter : MonoBehaviour
+public class Moveable : MonoBehaviour
 {
     [field: SerializeField]
-    public float SecondsPerMove { get; set; } = 1.0f;
+    public float SecondsPerMove { get; set; } = 0.2f;
 
     [field: SerializeField]
     public GameObject Grid { get; set; }
 
-    public bool IsSelected { get; private set; }
     public bool IsMoving { get; private set; }
 
     private Grid _grid;
-    private GameObject _highlight;
-    private GameObject _anchor; // Used to lock the player to a cell position
-    private Animator _animator;
 
     private Queue<Cell> _path;
 
@@ -24,23 +19,16 @@ public class PlayerCharacter : MonoBehaviour
     private Vector3 _nextPosition;
     private float _moveTimer = 0f;
 
-    void Start()
+    private Animator _animator;
+
+    private void Start()
     {
-        IsSelected = false;
-
         _grid = Grid.GetComponent<Grid>();
-
-        _highlight = GameObject.Find("Highlight");
-        _highlight.SetActive(false);
-
-        _anchor = GameObject.Find("Anchor");
         _animator = GameObject.Find("Sprite").GetComponent<Animator>();
     }
 
-    void Update()
+    private void Update()
     {
-        _highlight.SetActive(IsSelected);
-
         if (_moveTimer > 0f)
         {
             transform.position = Vector3.Lerp(_nextPosition, _prevPosition, Mathf.InverseLerp(0f, SecondsPerMove, _moveTimer));
@@ -78,25 +66,5 @@ public class PlayerCharacter : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         StopMoving();
-    }
-
-    public void OnPrimaryAction(InputAction.CallbackContext context)
-    {
-        IsSelected = false;
-
-        // TODO: Try to use mouse position from context instead
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-
-        RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-        if (hit.collider == null) return;
-        if (hit.collider.gameObject.tag != "Player") return;
-
-        IsSelected = true;
-    }
-
-    public void OnCancelAction(InputAction.CallbackContext context)
-    {
-        IsSelected = false;
     }
 }
