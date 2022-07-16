@@ -5,6 +5,7 @@ Shader "Unlit/SelectableSpriteShader" {
 		_OutlineColor("Outline Color", Color) = (1,1,1,1)
         _OutlineEnabled("Outline Enabled", Range(0, 1)) = 1
     }
+
     SubShader
     {
 		Tags
