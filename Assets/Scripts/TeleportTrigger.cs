@@ -5,9 +5,34 @@ public class TeleportTrigger : MonoBehaviour
     [field: SerializeField]
     public GameObject Destination;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private bool _isEnabled = true;
+
+    private AudioSource _audioSource;
+
+    private void Start()
     {
-        collision.gameObject.transform.position = Destination.transform.position;
+        _audioSource = GetComponent<AudioSource>();
+    }
+
+    public void Receive(GameObject obj)
+    {
+        _isEnabled = false;
+        obj.transform.position = transform.position;
+        Camera.main.GetComponent<MainCamera>().FocusOn(gameObject);
+
+        _audioSource.Play();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!_isEnabled) return;
+
+        Destination.GetComponent<TeleportTrigger>().Receive(other.gameObject);
+    }
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        _isEnabled = true;
     }
 
     private void OnDrawGizmos()
