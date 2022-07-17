@@ -4,11 +4,15 @@ using UnityEngine;
 public class Moveable : MonoBehaviour
 {
     [field: SerializeField]
+    public Events.CharacterMovingEvent OnCharacterMoving;
+
+    [field: SerializeField]
     public float SecondsPerMove { get; set; } = 0.2f;
 
     [field: SerializeField]
     public GameObject Grid { get; set; }
 
+    public bool IsMoveable { get; private set; } = true;
     public bool IsMoving { get; private set; }
 
     private Grid _grid;
@@ -43,6 +47,7 @@ public class Moveable : MonoBehaviour
             if (_path != null && _path.Count > 0)
             {
                 IsMoving = true;
+                OnCharacterMoving.Invoke(gameObject);
                 _prevPosition = transform.position;
                 _nextPosition = _grid.GetCellCenterWorld(_path.Dequeue().Position);
                 _moveTimer = SecondsPerMove;
@@ -57,8 +62,16 @@ public class Moveable : MonoBehaviour
         _animator.SetBool("IsMoving", IsMoving);
     }
 
+    public void Freeze()
+    {
+        IsMoveable = false;
+        _path = null;
+    }
+
     public void Move(List<Cell> path)
     {
+        if (!IsMoveable) return;
+
         _path = new Queue<Cell>(path);
     }
 

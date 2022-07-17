@@ -1,4 +1,5 @@
-Shader "Unlit/SelectableSpriteShader" {
+Shader "Custom/SelectableSpriteShader"
+{
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
@@ -8,13 +9,9 @@ Shader "Unlit/SelectableSpriteShader" {
 
     SubShader
     {
-		Tags
-		{
-			"RenderType" = "Transparent"
-            "Queue" = "Transparent"
-		}
- 
-		Blend SrcAlpha OneMinusSrcAlpha
+        Tags {"Queue" = "Transparent" "RenderType" = "Transparent"}
+        Blend SrcAlpha OneMinusSrcAlpha
+        ZWrite off
  
         Pass
         {
@@ -74,4 +71,5 @@ Shader "Unlit/SelectableSpriteShader" {
             ENDCG
         }
     }
+    FallBack "Diffuse"
 }

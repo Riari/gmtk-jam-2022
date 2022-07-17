@@ -10,7 +10,7 @@ public class MainCamera : MonoBehaviour
     public float SmoothSpeed = 6.0f;
 
     [field: SerializeField]
-    public float PanSpeed = 5.0f;
+    public float PanSpeed = 8.0f;
 
     [field: SerializeField]
     public float AutoPanSpeed = 25.0f;

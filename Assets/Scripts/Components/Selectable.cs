@@ -3,6 +3,10 @@ using UnityEngine.InputSystem;
 
 public class Selectable : MonoBehaviour
 {
+    [field: SerializeField]
+    public Events.CharacterSelectedEvent OnCharacterSelected;
+
+    public bool IsSelectable { get; private set; } = true;
     public bool IsSelected { get; private set; }
 
     private Material _material;
@@ -18,8 +22,21 @@ public class Selectable : MonoBehaviour
         _material.SetInt("_OutlineEnabled", IsSelected ? 1 : 0);
     }
 
+    public void Freeze()
+    {
+        IsSelectable = false;
+        IsSelected = false;
+    }
+    
+    public void Unfreeze()
+    {
+        IsSelectable = true;
+    }
+
     public void OnPrimaryAction(InputAction.CallbackContext context)
     {
+        if (!IsSelectable) return;
+
         IsSelected = false;
 
         // TODO: Try to use mouse position from context instead
@@ -28,9 +45,10 @@ public class Selectable : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
         if (hit.collider == null) return;
-        if (hit.collider.gameObject.tag != "Player") return;
+        if (hit.collider.gameObject.GetInstanceID() != gameObject.GetInstanceID()) return;
 
         IsSelected = true;
+        OnCharacterSelected.Invoke(gameObject);
     }
 
     public void OnCancelAction(InputAction.CallbackContext context)
