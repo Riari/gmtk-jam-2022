@@ -6,6 +6,7 @@ public class CombatMediator : MonoBehaviour
     public GameObject HUD;
 
     private HUD _hud;
+    private EventTitle _eventTitles;
 
     private bool _initiated = false;
 
@@ -15,6 +16,7 @@ public class CombatMediator : MonoBehaviour
     private void Start()
     {
         _hud = HUD.GetComponent<HUD>();
+        _eventTitles = HUD.GetComponent<EventTitle>();
     }
 
     public void OnCombatInitiated(GameObject friend, GameObject foe)
@@ -28,6 +30,7 @@ public class CombatMediator : MonoBehaviour
         friend.GetComponent<Moveable>().Freeze();
         foe.GetComponent<Moveable>().Freeze();
 
+        _eventTitles.Queue(EventTitle.Type.Negative, "Attack Mode");
         _hud.AddCombatLogEntry($"Attacking {_foe.Name}");
     }
 

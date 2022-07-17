@@ -7,14 +7,20 @@ public class HUD : MonoBehaviour
     public GameObject CombatLog;
 
     private GameObject _attackModeContainer;
+
     private TextMeshProUGUI _combatLog;
 
-    void Start()
+    private void Start()
     {
         _attackModeContainer = GameObject.Find("AttackMode");
         _attackModeContainer.SetActive(false);
 
         _combatLog = CombatLog.GetComponent<TextMeshProUGUI>();
+    }
+
+    private void Update()
+    {
+        
     }
 
     public void AddCombatLogEntry(string entry)

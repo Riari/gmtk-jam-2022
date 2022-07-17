@@ -18,18 +18,24 @@ public class HintManager : MonoBehaviour
 
     public void OnCharacterSelected(GameObject character)
     {
+        if (!_selectHint.activeSelf) return;
+
         _selectHint.SetActive(false);
         _moveHint.SetActive(true);
     }
 
     public void OnCharacterMoving(GameObject character)
     {
+        if (!_moveHint.activeSelf) return;
+
         _moveHint.SetActive(false);
         _fightHint.SetActive(true);
     }
 
     public void OnCombatInitiated(GameObject attacker, GameObject defender)
     {
+        if (!_fightHint.activeSelf) return;
+
         _fightHint.SetActive(false);
     }
 }
