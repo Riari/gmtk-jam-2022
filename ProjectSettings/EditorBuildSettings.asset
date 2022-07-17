@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 92df9b860f00d4b48a3dba26c5c68d27
+  - enabled: 1
+    path: Assets/Scenes/Test DungeonUI.unity
+    guid: a257439b67de86a42ae70d5e917df364
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
