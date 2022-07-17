@@ -12,7 +12,7 @@ public class HUD : MonoBehaviour
     void Start()
     {
         _attackModeContainer = GameObject.Find("AttackMode");
-        _attackModeContainer.SetActive(false);
+        //_attackModeContainer.SetActive(false);
 
         _combatLog = CombatLog.GetComponent<TextMeshProUGUI>();
     }
