@@ -50,6 +50,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6111a5e8aff01349b4e5ba1923d4b38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnCharacterSelected:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &-5388382684601739394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,6 +65,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 869642f10caadf04f9a0a1afb10c4bed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnCharacterMoving:
+    m_PersistentCalls:
+      m_Calls: []
   <SecondsPerMove>k__BackingField: 0.2
   <Grid>k__BackingField: {fileID: 0}
 --- !u!114 &2775419866885612907
@@ -76,6 +82,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ad9541466dde3469ad5a368782151b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnInitialised:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
   Health: 100
   MaxHealth: 100
   AC: 12

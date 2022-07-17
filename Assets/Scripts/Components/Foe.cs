@@ -1,36 +1,63 @@
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.UI;
+using TMPro;
 
 public class Foe : MonoBehaviour
 {
     [field: SerializeField]
     public int AggroRadius = 3;
 
-    private SpriteRenderer _aggroSpriteRenderer;
-    private BoxCollider2D _collider;
+    [field: SerializeField]
+    public GameObject Health;
 
-    private UnityEvent _onCombatTriggered;
+    [field: SerializeField]
+    public GameObject HealthBar;
+
+    [field: SerializeField]
+    public SpriteRenderer AggroSpriteRenderer;
+
+    private BoxCollider2D _collider;
 
     void Start()
     {
-        _aggroSpriteRenderer = GameObject.Find("AggroRadius").GetComponent<SpriteRenderer>();
-        _aggroSpriteRenderer.transform.localScale = new Vector3(AggroRadius, AggroRadius);
+        AggroSpriteRenderer.transform.localScale = new Vector3(AggroRadius, AggroRadius);
         _collider = GetComponent<BoxCollider2D>();
         _collider.size = new Vector2(AggroRadius, AggroRadius);
 
-        if (_onCombatTriggered == null)
-        {
-            _onCombatTriggered = new UnityEvent();
-        }
+        Health.SetActive(false);
+        HealthBar.SetActive(false);
     }
 
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.gameObject.tag != "Player") return;
+
+        Health.SetActive(true);
+        HealthBar.SetActive(true);
     }
 
-    public void RegisterOnCombatTriggeredListener(UnityAction callback)
+    public void OnStatsInitialised(Stats stats)
     {
-        _onCombatTriggered.AddListener(callback);
+        var healthText = Health.GetComponentInChildren<TextMeshProUGUI>();
+        var healthSlider = HealthBar.GetComponentInChildren<Slider>();
+
+        healthText.text = stats.Health.ToString();
+        healthSlider.maxValue = stats.MaxHealth;
+        healthSlider.value = stats.Health;
+    }
+
+    public void OnHealthChanged(int value)
+    {
+        var healthText = Health.GetComponentInChildren<TextMeshProUGUI>();
+        var healthSlider = HealthBar.GetComponentInChildren<Slider>();
+
+        healthText.text = value.ToString();
+        healthSlider.value = value;
+    }
+
+    public void Kill()
+    {
+        GetComponent<AudioSource>().Play();
+        Destroy(gameObject, 0.3f);
     }
 }

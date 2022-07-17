@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -13,9 +14,19 @@ public class HUD : MonoBehaviour
     [field: SerializeField]
     public GameObject CombatActions;
 
-    private TextMeshProUGUI _combatLog;
+    [field: SerializeField]
+    public Slider HealthSlider;
 
-    public bool MagicAttackUsed = false;
+    [field: SerializeField]
+    public TextMeshProUGUI HealthText;
+
+    [field: SerializeField]
+    public Image FlashOverlay;
+
+    [field: SerializeField]
+    public GameObject DeathScreen;
+
+    private TextMeshProUGUI _combatLog;
 
     private void Start()
     {
@@ -24,6 +35,8 @@ public class HUD : MonoBehaviour
         _combatLog = CombatLog.GetComponent<TextMeshProUGUI>();
 
         DisableCombatActions();
+
+        DeathScreen.SetActive(false);
     }
 
     public void EnableCombatActions()
@@ -31,9 +44,6 @@ public class HUD : MonoBehaviour
         for (int i = 0; i < CombatActions.transform.childCount; i++)
         {
             var obj = CombatActions.transform.GetChild(i).gameObject;
-            
-            // TODO: Find a better way of managing magic usage/cost
-            if (obj.name == "MagicMissile" && MagicAttackUsed) continue;
 
             SetActionEnabled(obj, true);
         }
@@ -65,8 +75,41 @@ public class HUD : MonoBehaviour
         _combatLog.text += entry + "\n";
     }
 
-    public void OnCombatInitiated(GameObject attacker, GameObject target)
+    public void ClearCombatLog()
+    {
+        _combatLog.text = "";
+    }
+
+    public void OnCombatInitiated(GameObject attacker, GameObject defender)
     {
         AttackModeContainer.SetActive(true);
+    }
+
+    public void OnCombatEnded(GameObject winner, GameObject loser)
+    {
+        AttackModeContainer.SetActive(false);
+    }
+
+    public void OnCharacterStatsInitialised(Stats stats)
+    {
+        HealthText.text = stats.Health.ToString();
+        HealthSlider.maxValue = stats.MaxHealth;
+        HealthSlider.value = stats.Health;
+    }
+
+    public void OnCharacterHealthChanged(int health)
+    {
+        HealthText.text = health.ToString();
+        HealthSlider.value = health;
+    }
+
+    public void OnRespawnButtonPressed()
+    {
+        SceneManager.LoadScene("Dungeon1");
+    }
+
+    public void OnExitButtonPressed()
+    {
+        SceneManager.LoadScene("MainTitleScene");
     }
 }

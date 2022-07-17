@@ -68,6 +68,11 @@ public class Moveable : MonoBehaviour
         _path = null;
     }
 
+    public void Unfreeze()
+    {
+        IsMoveable = true;
+    }
+
     public void Move(List<Cell> path)
     {
         if (!IsMoveable) return;

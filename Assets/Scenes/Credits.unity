@@ -542,7 +542,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 96.9, y: -110.1}
+  m_AnchoredPosition: {x: 97.09, y: -45.6}
   m_SizeDelta: {x: 316.48083, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &282654364
@@ -598,7 +598,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 5
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -677,7 +677,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00023842, y: -56}
+  m_AnchoredPosition: {x: -0.00023842, y: -47.8}
   m_SizeDelta: {x: 316.48, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &337041107
@@ -727,8 +727,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1768,7 +1768,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 98.9, y: 52.1}
+  m_AnchoredPosition: {x: 98.9, y: 61.4}
   m_SizeDelta: {x: 316.4807, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &974497602
@@ -1824,7 +1824,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 5
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2286,7 +2286,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -85, y: -95}
+  m_AnchoredPosition: {x: -85, y: -92.3}
   m_SizeDelta: {x: 329.0154, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1901904060
@@ -2311,8 +2311,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: '16x16 DungeonTileset by 0x72
 
+    Minifantasy - Dungeon SFX Pack by Leohpaz
 
-    Music by Fesliyan Studios'
+    8-Bit
+    Fantasy & Adventure Music Pack by xDeviruchi
+
+    Main title music by Fesliyan
+    Studios
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 38d0b1676c57eed4eb24d0f348fb1509, type: 2}
   m_sharedMaterial: {fileID: 1481968723593014141, guid: 38d0b1676c57eed4eb24d0f348fb1509, type: 2}
@@ -2339,8 +2346,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
