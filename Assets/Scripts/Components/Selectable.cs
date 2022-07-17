@@ -3,6 +3,9 @@ using UnityEngine.InputSystem;
 
 public class Selectable : MonoBehaviour
 {
+    [field: SerializeField]
+    public Events.CharacterSelectedEvent OnCharacterSelected;
+
     public bool IsSelectable { get; private set; } = true;
     public bool IsSelected { get; private set; }
 
@@ -42,9 +45,10 @@ public class Selectable : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
         if (hit.collider == null) return;
-        if (hit.collider.gameObject.tag != "Player") return;
+        if (hit.collider.gameObject.GetInstanceID() != gameObject.GetInstanceID()) return;
 
         IsSelected = true;
+        OnCharacterSelected.Invoke(gameObject);
     }
 
     public void OnCancelAction(InputAction.CallbackContext context)

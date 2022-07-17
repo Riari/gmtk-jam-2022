@@ -4,6 +4,9 @@ using UnityEngine;
 public class Moveable : MonoBehaviour
 {
     [field: SerializeField]
+    public Events.CharacterMovingEvent OnCharacterMoving;
+
+    [field: SerializeField]
     public float SecondsPerMove { get; set; } = 0.2f;
 
     [field: SerializeField]
@@ -44,6 +47,7 @@ public class Moveable : MonoBehaviour
             if (_path != null && _path.Count > 0)
             {
                 IsMoving = true;
+                OnCharacterMoving.Invoke(gameObject);
                 _prevPosition = transform.position;
                 _nextPosition = _grid.GetCellCenterWorld(_path.Dequeue().Position);
                 _moveTimer = SecondsPerMove;
