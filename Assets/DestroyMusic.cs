@@ -8,7 +8,7 @@ public class DestroyMusic : MonoBehaviour
     void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("BackgroundMusic");
-        if (objs.Length > 1)
+        if (objs.Length > 0)
             Destroy(this.gameObject);
     }
 
