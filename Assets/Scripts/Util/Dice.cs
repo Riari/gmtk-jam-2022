@@ -9,7 +9,7 @@ public class Dice
     readonly public static int D12 = 12;
     readonly public static int D20 = 20;
 
-    public int Roll(int n, int d)
+    public static int Roll(int n, int d)
     {
         int result = 0;
         for (int i = 0; i < n; i++)

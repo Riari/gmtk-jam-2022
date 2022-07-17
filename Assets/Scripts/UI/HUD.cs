@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class HUD : MonoBehaviour
@@ -6,21 +7,57 @@ public class HUD : MonoBehaviour
     [field: SerializeField]
     public GameObject CombatLog;
 
-    private GameObject _attackModeContainer;
+    [field: SerializeField]
+    public GameObject AttackModeContainer;
+
+    [field: SerializeField]
+    public GameObject CombatActions;
 
     private TextMeshProUGUI _combatLog;
 
+    public bool MagicAttackUsed = false;
+
     private void Start()
     {
-        _attackModeContainer = GameObject.Find("AttackMode");
-        _attackModeContainer.SetActive(false);
+        AttackModeContainer.SetActive(false);
 
         _combatLog = CombatLog.GetComponent<TextMeshProUGUI>();
+
+        DisableCombatActions();
     }
 
-    private void Update()
+    public void EnableCombatActions()
     {
-        
+        for (int i = 0; i < CombatActions.transform.childCount; i++)
+        {
+            var obj = CombatActions.transform.GetChild(i).gameObject;
+            
+            // TODO: Find a better way of managing magic usage/cost
+            if (obj.name == "MagicMissile" && MagicAttackUsed) continue;
+
+            SetActionEnabled(obj, true);
+        }
+    }
+
+    public void DisableCombatActions()
+    {
+        for (int i = 0; i < CombatActions.transform.childCount; i++)
+        {
+            SetActionEnabled(CombatActions.transform.GetChild(i).gameObject, false);
+        }
+    }
+
+    private void SetActionEnabled(GameObject actionObject, bool enabled)
+    {
+        var action = actionObject.gameObject;
+
+        var image = action.GetComponent<Image>();
+        var color = image.color;
+        color.a = enabled ? 1.0f : 0.8f;
+        image.color = color;
+
+        var button = action.GetComponent<Button>();
+        button.interactable = enabled;
     }
 
     public void AddCombatLogEntry(string entry)
@@ -30,6 +67,6 @@ public class HUD : MonoBehaviour
 
     public void OnCombatInitiated(GameObject attacker, GameObject target)
     {
-        _attackModeContainer.SetActive(true);
+        AttackModeContainer.SetActive(true);
     }
 }

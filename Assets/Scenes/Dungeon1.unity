@@ -614,6 +614,70 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1765930340}
+    - target: {fileID: 7438255761346390691, guid: 4289097431e32cf498a85c97336b910a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 151.29999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438255761346390691, guid: 4289097431e32cf498a85c97336b910a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -48.200012
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438255761833358901, guid: 4289097431e32cf498a85c97336b910a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438255761833358901, guid: 4289097431e32cf498a85c97336b910a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438255761833358901, guid: 4289097431e32cf498a85c97336b910a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1182406370}
+    - target: {fileID: 7438255761833358901, guid: 4289097431e32cf498a85c97336b910a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438255761833358901, guid: 4289097431e32cf498a85c97336b910a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPlayerMagicAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438255761833358901, guid: 4289097431e32cf498a85c97336b910a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CombatMediator, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438255761833358901, guid: 4289097431e32cf498a85c97336b910a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438255762724226382, guid: 4289097431e32cf498a85c97336b910a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438255762724226382, guid: 4289097431e32cf498a85c97336b910a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438255762724226382, guid: 4289097431e32cf498a85c97336b910a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1182406370}
+    - target: {fileID: 7438255762724226382, guid: 4289097431e32cf498a85c97336b910a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438255762724226382, guid: 4289097431e32cf498a85c97336b910a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPlayerMeleeAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438255762724226382, guid: 4289097431e32cf498a85c97336b910a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CombatMediator, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438255762724226382, guid: 4289097431e32cf498a85c97336b910a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7438255762881223635, guid: 4289097431e32cf498a85c97336b910a, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -28.399994
@@ -624,7 +688,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7582755575939178574, guid: 4289097431e32cf498a85c97336b910a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.0000104904175
+      value: -0.000082433224
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582755575939178574, guid: 4289097431e32cf498a85c97336b910a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.0008544922
       objectReference: {fileID: 0}
     - target: {fileID: 7942792104861459499, guid: 4289097431e32cf498a85c97336b910a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -8827,6 +8895,18 @@ PrefabInstance:
     - target: {fileID: 1954683195102732868, guid: 1518b73c2f763e947a5764e70795c204, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775419866885612907, guid: 1518b73c2f763e947a5764e70795c204, type: 3}
+      propertyPath: AC
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775419866885612907, guid: 1518b73c2f763e947a5764e70795c204, type: 3}
+      propertyPath: Health
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775419866885612907, guid: 1518b73c2f763e947a5764e70795c204, type: 3}
+      propertyPath: MaxHealth
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8680203823921563286, guid: 1518b73c2f763e947a5764e70795c204, type: 3}
       propertyPath: HUD

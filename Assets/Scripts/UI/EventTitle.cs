@@ -37,10 +37,6 @@ public class EventTitle : MonoBehaviour
         _textPositive = GameObject.Find("EventTitlePositive").GetComponent<TextMeshProUGUI>();
         _textNeutral = GameObject.Find("EventTitleNeutral").GetComponent<TextMeshProUGUI>();
         _textNegative = GameObject.Find("EventTitleNegative").GetComponent<TextMeshProUGUI>();
-
-        Queue(Type.Positive, "Positive Title");
-        Queue(Type.Neutral, "Neutral Title");
-        Queue(Type.Negative, "Negative Title");
     }
 
     private void FixedUpdate()
@@ -70,6 +66,8 @@ public class EventTitle : MonoBehaviour
                     break;
             }
         }
+
+        if (_current == null) return;
 
         var position = _rectTransform.anchoredPosition;
         _timer -= Time.fixedDeltaTime;
